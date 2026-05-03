@@ -4,7 +4,7 @@ var speed
 const WALK_SPEED = 3.0
 const SPRINT_SPEED = 6.0
 const JUMP_VELOCITY = 4.5
-const SENSITIVITY = 0.02
+const SENSITIVITY = 0.007
 
 #variables for head bobbing
 const BOB_FREQ = 0.05
@@ -20,7 +20,7 @@ var was_on_floor = false
 @onready var coyote_timer = $CoyoteTimer
 
 @onready var head = $Head
-@onready var camera = $Head/Camera3D
+@onready var camera = $Head/PlayerCamera
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
