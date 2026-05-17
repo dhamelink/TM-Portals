@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cajuisnbtw72t"]
+[gd_scene load_steps=12 format=3 uid="uid://cajuisnbtw72t"]
 
 [ext_resource type="Script" uid="uid://bk10sinuv5ygt" path="res://player.gd" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://bdwy6ee3quwa7" path="res://portal.tscn" id="2_fj7yv"]
@@ -36,7 +36,7 @@ albedo_color = Color(0, 1, 0.79999995, 1)
 [node name="World" type="Node3D" unique_id=1006530827]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=338216628]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 9.764721, 18.547226)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 10.311468, 7.311491, -7.9415836)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=681726790]
@@ -62,19 +62,19 @@ wait_time = 0.1
 one_shot = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1189252561]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 use_collision = true
 size = Vector3(12, 1, 20)
 material = SubResource("StandardMaterial3D_f3sb7")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1232928727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.826567, 0.7064924, 6.823983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.2809548, 4.6628637)
 use_collision = true
-size = Vector3(2.005005, 0.5625, 5)
+size = Vector3(0.9244995, 1.7114258, 0.7651367)
 material = SubResource("StandardMaterial3D_tlwt5")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=2041077363]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 1)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
 use_collision = true
 size = Vector3(12, 1, 20)
 material = SubResource("StandardMaterial3D_aqk2v")
@@ -86,7 +86,7 @@ size = Vector3(2.7346191, 0.59004974, 2.697754)
 material = SubResource("StandardMaterial3D_036b0")
 
 [node name="PortalBlue" type="Node3D" parent="." unique_id=1720256830]
-transform = Transform3D(2, 0, 0, 0, 0.8, 0, 0, 0, 1, -0.69357944, 1.5, 1)
+transform = Transform3D(2, 0, 0, 0, 0.8, 0, 0, 0, 1, -0.694, 1.505, 1)
 
 [node name="Portal" parent="PortalBlue" unique_id=1888621344 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
 other_portal = NodePath("../../PortalRed/Portal")
@@ -104,7 +104,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, 0)
 size = Vector3(0.13059083, 2.865088, 0.5)
 
 [node name="PortalRed" type="Node3D" parent="." unique_id=989280898]
-transform = Transform3D(2, 0, 0, 0, 0.8, 0, 0, 0, 1, 13.2331295, 1.5, 1)
+transform = Transform3D(2, 0, 0, 0, 0.8, 0, 0, 0, 1, 5, 1.505, 1)
 
 [node name="Portal" parent="PortalRed" unique_id=716629423 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
 other_portal = NodePath("../../PortalBlue/Portal")
