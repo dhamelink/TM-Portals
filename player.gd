@@ -39,6 +39,14 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
+	if Input.is_key_pressed(KEY_R):
+		self.global_position.x = 0
+		self.global_position.y = 2
+		self.global_position.z = 0
+		velocity.x = 0
+		velocity.z = 0
+		velocity.y = 0
+		
 	
 	var is_on_floor_now = is_on_floor()
 	# START COYOTE TIMER: If we were on floor last frame but aren't now (and didn't jump)

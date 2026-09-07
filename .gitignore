@@ -15,3 +15,9 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# builds
+TM-exe
+TM.console.exe
+TM.pck
+vkd3d-proton.cache.write

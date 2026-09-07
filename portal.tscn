@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdwy6ee3quwa7"]
+[gd_scene load_steps=6 format=3 uid="uid://bdwy6ee3quwa7"]
 
 [ext_resource type="Script" uid="uid://d28akcqdig6l3" path="res://portal.gd" id="1_ef3v5"]
 [ext_resource type="Shader" uid="uid://c6jnp5pdv13e6" path="res://Portal.gdshader" id="2_grrij"]
@@ -12,11 +12,13 @@ render_priority = 0
 shader = ExtResource("2_grrij")
 shader_parameter/texture_albedo = SubResource("ViewportTexture_tlwt5")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ef3v5"]
+
 [node name="Portal" type="Area3D" unique_id=1888621344]
 script = ExtResource("1_ef3v5")
 
 [node name="PortalVisual" type="CSGBox3D" parent="." unique_id=562859984]
-size = Vector3(1.5, 2.5, 0.1)
+size = Vector3(1.5, 2.5, 0)
 material = SubResource("ShaderMaterial_f3sb7")
 
 [node name="CameraViewport" type="SubViewport" parent="." unique_id=1293651116]
@@ -25,3 +27,4 @@ material = SubResource("ShaderMaterial_f3sb7")
 size = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1386926387]
+shape = SubResource("BoxShape3D_ef3v5")
