@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cajuisnbtw72t"]
+[gd_scene load_steps=11 format=3 uid="uid://cajuisnbtw72t"]
 
-[ext_resource type="Script" uid="uid://bk10sinuv5ygt" path="res://player.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://dv1rwbawd01l6" path="res://player.tscn" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://bdwy6ee3quwa7" path="res://portal.tscn" id="2_fj7yv"]
+[ext_resource type="MeshLibrary" uid="uid://y1o6acjmp5tr" path="res://Resources/blocks.tres" id="3_tlwt5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,11 +16,6 @@ background_mode = 2
 sky = SubResource("Sky_tlwt5")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_036b0"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dwbse"]
-points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]
 albedo_color = Color(0, 0.37400013, 0.68, 1)
@@ -42,24 +38,8 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=681726790]
 environment = SubResource("Environment_aqk2v")
 
-[node name="Player" type="CharacterBody3D" parent="." unique_id=842396313]
+[node name="Player" parent="." unique_id=1014992196 instance=ExtResource("1_fj7yv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1175084, -4.4057994)
-script = ExtResource("1_f3sb7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=160726955]
-mesh = SubResource("CapsuleMesh_036b0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=791566607]
-shape = SubResource("ConvexPolygonShape3D_dwbse")
-
-[node name="Head" type="Node3D" parent="Player" unique_id=1851998315]
-
-[node name="PlayerCamera" type="Camera3D" parent="Player/Head" unique_id=845157890]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.731, 0)
-
-[node name="CoyoteTimer" type="Timer" parent="Player" unique_id=1351081270]
-wait_time = 0.1
-one_shot = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1189252561]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
@@ -89,44 +69,78 @@ material = SubResource("StandardMaterial3D_036b0")
 transform = Transform3D(2, 0, 0, 0, 0.8, 0, 0, 0, 1, -0.694, 1.505, 1)
 
 [node name="Portal" parent="PortalBlue" unique_id=1888621344 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 other_portal = NodePath("../../PortalRed/Portalred")
-size = Vector2(2, 2)
+size = Vector2(1.5, 2.5)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="PortalBlue" unique_id=373913235]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
-visible = false
+use_collision = true
 size = Vector3(1.7, 0.3, 0.5)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="PortalBlue" unique_id=26965230]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8000001, 0.100000024, 0)
-visible = false
+use_collision = true
 size = Vector3(0.13059083, 2.8549316, 0.5)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="PortalBlue" unique_id=1305469696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, 0)
-visible = false
+use_collision = true
 size = Vector3(0.13059083, 2.865088, 0.5)
 
 [node name="PortalRed" type="Node3D" parent="." unique_id=989280898]
 transform = Transform3D(2, 0, 0, 0, 0.8, 0, 0, 0, 1, 6.94, 1.5, 0.055)
 
 [node name="Portalred" parent="PortalRed" unique_id=716629423 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 other_portal = NodePath("../../PortalBlue/Portal")
-size = Vector2(2, 2)
+size = Vector2(1.5, 2.5)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="PortalRed" unique_id=457685780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0.1, 0)
-visible = false
+use_collision = true
 size = Vector3(0.13059083, 2.865088, 0.5)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="PortalRed" unique_id=1397929153]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
-visible = false
+use_collision = true
 size = Vector3(1.7, 0.3, 0.5)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="PortalRed" unique_id=936554412]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0.1, 0)
-visible = false
+use_collision = true
 size = Vector3(0.13059083, 2.8549316, 0.5)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1261070215]
+mesh_library = ExtResource("3_tlwt5")
+data = {
+"cells": PackedInt32Array(-2, 65531, 1441792, -2, 65530, 1441792, -65536, 65531, 1441792, -1, 65531, 1441792, -65536, 65530, 1441792, -65536, 65529, 1441792, -1, 65529, 1441792, -2, 65529, 1441792, -6, 65535, 1441792, -7, 65535, 1441792, -8, 65535, 1441792, -9, 65535, 1441792, -10, 65535, 1441792, -10, 0, 1441792, -10, 1, 1441792, -8, 1, 1441792, -8, 0, 1441792, -9, 0, 1441792, -9, 1, 1441792, -7, 1, 1441792, -7, 0, 1441792, -6, 1, 1441792, -6, 0, 1441792, -16, 7, 1441792, -16, 8, 1441792, -15, 8, 1441792, -14, 8, 1441792, -13, 8, 1441792, -13, 7, 1441792, -15, 7, 1441792, -14, 7, 1441792, -12, 7, 1441792, -12, 8, 1441792, -11, 8, 1441792, -10, 8, 1441792, -9, 8, 1441792, -8, 8, 1441792, -8, 7, 1441792, -7, 8, 1441792, -7, 7, 1441792, -6, 7, 1441792, -6, 6, 1441792, -6, 5, 1441792, -7, 5, 1441792, -8, 5, 1441792, -9, 6, 1441792, -8, 6, 1441792, -7, 6, 1441792, -9, 5, 1441792, -10, 5, 1441792, -11, 7, 1441792, -10, 7, 1441792, -9, 7, 1441792, -10, 6, 1441792, -6, 8, 1441792, -17, 7, 1441792, -17, 8, 1441792, -17, 9, 1441792, -17, 10, 1441792, -16, 10, 1441792, -16, 9, 1441792, -15, 9, 1441792, -14, 9, 1441792, -15, 10, 1441792, -14, 10, 1441792, -13, 10, 1441792, -13, 9, 1441792, -12, 9, 1441792, -11, 9, 1441792, -11, 10, 1441792, -12, 10, 1441792, -10, 10, 1441792, -10, 9, 1441792, -6, 9, 1441792, -7, 9, 1441792, -8, 9, 1441792, -8, 10, 1441792, -7, 10, 1441792, -9, 10, 1441792, -9, 9, 1441792, -6, 10, 1441792, 262136, 65535, 1441792, -196616, 2, 1441793, -196617, 2, 1441793, -196617, 4, 1441793, -196616, 4, 1441793, -196615, 4, 655361, -196615, 3, 655361, -196615, 2, 655361, -196617, 3, 655361, 262136, 0, 655360, 262136, 1, 655360, 262135, 65535, 655360, 262135, 0, 655360, 262135, 1, 655360, 262137, 1, 655360, 262137, 65535, 655360, 262137, 0, 655360, 262138, 65535, 655360, 262138, 0, 655360, 262138, 1, 655360, 262134, 1, 655360, 262134, 0, 655360, 262134, 65535, 655360, -262153, 3, 655360, -262152, 2, 655360, -262153, 2, 655360, -262151, 2, 655360, -262153, 4, 655360, -262152, 4, 655360, -262151, 4, 655360, -262151, 3, 655360, -327687, 2, 655360, -327687, 3, 655360, -327687, 4, 655360, -327689, 4, 655360, -327688, 4, 655360, -327689, 3, 655360, -327689, 2, 655360, -327688, 2, 655360, -393225, 2, 655360, -393224, 2, 655360, -393223, 2, 655360, -393223, 3, 655360, -393223, 4, 655360, -393224, 4, 655360, -393225, 4, 655360, -393225, 3, 655360, -458761, 4, 655360, -458760, 4, 655360, -458759, 4, 655360, -458759, 3, 655360, -458759, 2, 655360, -458760, 2, 655360, -458761, 2, 655360, -458761, 3, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, -8, 0)
+
+[node name="Portalblue-test" type="Node3D" parent="." unique_id=512255386]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.25, 0, -11)
+
+[node name="Portal" parent="Portalblue-test" unique_id=1679035781 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8111304, 0, -0.63248587)
+other_portal = NodePath("../../Portaltest-blue/Portal")
+size = Vector2(2, 2)
+
+[node name="Portaltest-blue" type="Node3D" parent="." unique_id=1058022249]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, -15, 5.9, -1)
+
+[node name="Portal" parent="Portaltest-blue" unique_id=881514255 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
+other_portal = NodePath("../../Portalblue-test/Portal")
+size = Vector2(2, 2)
+
+[node name="PortalFall" type="Node3D" parent="." unique_id=5138672]
+
+[node name="Portal" parent="PortalFall" unique_id=1951395626 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
+transform = Transform3D(0.99998903, 0.004677465, -2.0445849e-10, 0, -4.371139e-08, -1, -0.004677465, 0.99998903, -4.371091e-08, -15, -15, 7)
+other_portal = NodePath("../../PortalLaunch/Portal")
+size = Vector2(2, 2)
+
+[node name="PortalLaunch" type="Node3D" parent="." unique_id=690366985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 7, 4.215608)
+
+[node name="Portal" parent="PortalLaunch" unique_id=1209544170 node_paths=PackedStringArray("other_portal") instance=ExtResource("2_fj7yv")]
+other_portal = NodePath("../../PortalFall/Portal")
+size = Vector2(2, 2)

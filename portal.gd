@@ -15,7 +15,6 @@ extends Area3D
 #self explanatory but with all the different similarly named variables/functions, clarification is worth having
 #array containing all the physics bodies the portal is currently tracking. also stores which body it is specifically, along with its position from last frame (necessary to see if player crossed the portal)
 var _tracked_phys_bodies: Array = []
-var _portal_is_thick = false
 
 # If a body moves more than this distance in one frame,
 # assume it was moved/teleported by something else rather

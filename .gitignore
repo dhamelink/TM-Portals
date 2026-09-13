@@ -17,6 +17,8 @@ data_*/
 mono_crash.*.json
 
 # builds
+Versions/
+Resources/
 TM-exe
 TM.console.exe
 TM.pck

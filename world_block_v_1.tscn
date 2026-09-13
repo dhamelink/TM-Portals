@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwwo5ri3klohm"]
+
+[ext_resource type="PackedScene" uid="uid://gtc4emkrxj1o" path="res://Assets/Models/world-block-v1.glb" id="1_nyfr5"]
+
+[node name="world-block-v1" unique_id=366623570 instance=ExtResource("1_nyfr5")]

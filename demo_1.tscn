@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1076tvnency6"]
+
+[ext_resource type="Script" uid="uid://bk10sinuv5ygt" path="res://player.gd" id="1_5c1db"]
+[ext_resource type="MeshLibrary" uid="uid://y1o6acjmp5tr" path="res://Resources/blocks.tres" id="1_80i0e"]
+
+[node name="Demo1" type="Node3D" unique_id=184887174]
+script = ExtResource("1_5c1db")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1719627504]
+mesh_library = ExtResource("1_80i0e")
+data = {
+"cells": PackedInt32Array(-1, 65535, 1441792, -65536, 65535, 1441792, -65536, 1, 1441792, -65536, 0, 1441792, -1, 1, 1441792, -1, 0, 1441792, -65535, 0, 1441792, -65535, 1, 1441792, -65535, 65535, 1441792, -65534, 65534, 1441792, -65535, 65534, 1441792, -65534, 0, 1441792, -65534, 65535, 1441792, -65534, 1, 1441792, -65536, 65534, 1441792, -1, 65534, 1441792, -2, 65535, 1441792, -2, 65534, 1441792, -2, 0, 1441792, -2, 1, 1441792)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
